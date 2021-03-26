@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/green-test/static/css/main.92d05490.chunk.css",
+    "main.js": "/green-test/static/js/main.e5ab66c6.chunk.js",
+    "main.js.map": "/green-test/static/js/main.e5ab66c6.chunk.js.map",
+    "runtime-main.js": "/green-test/static/js/runtime-main.2e3af787.js",
+    "runtime-main.js.map": "/green-test/static/js/runtime-main.2e3af787.js.map",
+    "static/js/2.a52e6c07.chunk.js": "/green-test/static/js/2.a52e6c07.chunk.js",
+    "static/js/2.a52e6c07.chunk.js.map": "/green-test/static/js/2.a52e6c07.chunk.js.map",
+    "static/js/3.65eac9c3.chunk.js": "/green-test/static/js/3.65eac9c3.chunk.js",
+    "static/js/3.65eac9c3.chunk.js.map": "/green-test/static/js/3.65eac9c3.chunk.js.map",
+    "index.html": "/green-test/index.html",
+    "static/css/main.92d05490.chunk.css.map": "/green-test/static/css/main.92d05490.chunk.css.map",
+    "static/js/2.a52e6c07.chunk.js.LICENSE.txt": "/green-test/static/js/2.a52e6c07.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2e3af787.js",
+    "static/js/2.a52e6c07.chunk.js",
+    "static/css/main.92d05490.chunk.css",
+    "static/js/main.e5ab66c6.chunk.js"
+  ]
+}
