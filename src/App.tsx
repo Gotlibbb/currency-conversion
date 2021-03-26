@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import classes from './App.module.css';
+import CurrencyContainer from "./components/CurrencyContainer";
+import {conversionApi} from "./dal/conversionApi";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+    useEffect(() => {
+        setInterval(() => conversionApi.getCurrentCurrency().then(res => res), 10000)
+    })
+
+
+    return <div className={classes.conversionContainer}>
+
+        <div className={classes.conversionContainer__titleBlock}>
+            <h1 className={classes.conversionContainer__titleBlock__title}>
+                Currency Conversion
+            </h1>
+        </div>
+
+        <CurrencyContainer/>
+
+
+    </div>;
 }
 
-export default App;
+export default React.memo(App);
