@@ -5,10 +5,6 @@ import {conversionApi} from "./dal/conversionApi";
 
 const App = () => {
 
-    useEffect(() => {
-        setInterval(() => conversionApi.getCurrentCurrency().then(res => res), 10000)
-    })
-
 
     return <div className={classes.conversionContainer}>
 

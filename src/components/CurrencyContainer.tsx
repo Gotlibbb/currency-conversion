@@ -20,7 +20,7 @@ const CurrencyContainer = () => {
     useEffect(() => {
         rates === null && conversionApi.getCurrentCurrency().then(res => setRates(res.rates))
 
-        setInterval(() => conversionApi.getCurrentCurrency().then(res => setRates(res.rates)), 10000)
+        rates === null && setInterval(() => conversionApi.getCurrentCurrency().then(res => setRates(res.rates)), 10000)
 
         if (rates) {
             setInputValutaValue(Number(((rubles || 0) * (rates[valuta])).toFixed(2)))
