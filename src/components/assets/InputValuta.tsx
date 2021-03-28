@@ -3,8 +3,8 @@ import React, {ChangeEvent} from "react"
 
 type InputValutaPropsType = {
     valuta: string
-    inputValue: number
-    setInputValue: (inputValue: number)=> void
+    inputValue: number | null
+    setInputValue: (inputValue: number | null)=> void
 
 
 }

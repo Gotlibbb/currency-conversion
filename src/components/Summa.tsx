@@ -1,7 +1,7 @@
 import React from "react"
 
 type SummaPropsType ={
-    inputValutaValue: number
+    inputValutaValue: number | null
     valuta: string
 }
 

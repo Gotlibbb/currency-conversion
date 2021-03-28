@@ -2,10 +2,10 @@ import React from "react"
 import InputValuta from "./assets/InputValuta";
 
 type RublesInputPropsType = {
-    rubles: number
-    setRubles: (rubles: number) => void
-    setInputValutaValue: (inputValutaValue: number) => void
-    inputValutaValue: number
+    rubles: number | null
+    setRubles: (rubles: number| null) => void
+    setInputValutaValue: (inputValutaValue: number| null) => void
+    inputValutaValue: number| null
     rates: { [key: string]: number }
     valuta: string
 }

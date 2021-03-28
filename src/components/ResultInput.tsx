@@ -3,19 +3,19 @@ import InputValuta from "./assets/InputValuta"
 import SelectCurrency from "./assets/SelectCurrency"
 
 type ResultInputPropsType = {
-    setInputValutaValue: (inputValutaValue: number) => void
-    inputValutaValue: number
+    setInputValutaValue: (inputValutaValue: number | null) => void
+    inputValutaValue: number| null
     setValuta: (valuta: string) => void
     valuta: string
-    rubles: number
+    rubles: number| null
     rates: { [key: string]: number }
-    setRubles: (rubles: number) => void
+    setRubles: (rubles: number| null) => void
 }
 
 const ResultInput = (props: ResultInputPropsType) => {
 
-    const onChangeHandler = useCallback((inputValutaValue : number) => {
-        props.setRubles(Number((inputValutaValue / props.rates[props.valuta]).toFixed(2)))
+    const onChangeHandler = useCallback((inputValutaValue : number | null) => {
+        props.setRubles(Number(((inputValutaValue || 0) / props.rates[props.valuta]).toFixed(2)))
         props.setInputValutaValue(inputValutaValue)
     },[props.setRubles,props.rates, props.valuta , props.setInputValutaValue])
 

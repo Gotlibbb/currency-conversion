@@ -11,12 +11,16 @@ const CurrencyContainer = () => {
 
 
     let [valuta, setValuta] = useState<string>("USD")
-    let [rubles, setRubles] = useState<number>(0)
-    let [inputValutaValue, setInputValutaValue] = useState<number>(0)
+    let [rubles, setRubles] = useState<number|null>(0)
+    let [inputValutaValue, setInputValutaValue] = useState<number| null>(0)
+
+    inputValutaValue===0&& setInputValutaValue(null)
+    rubles===0&& setRubles(null)
+
     useEffect(() => {
         conversionApi.getCurrentCurrency().then(res => setRates(res.rates))
 
-        setInputValutaValue(Number((rubles * rates[valuta]).toFixed(2)))
+        setInputValutaValue(Number(((rubles || 0) * rates[valuta]).toFixed(2)))
 
 
     }, [valuta, rubles, rates])
