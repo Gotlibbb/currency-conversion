@@ -8,14 +8,14 @@ type ResultInputPropsType = {
     setValuta: (valuta: string) => void
     valuta: string
     rubles: number| null
-    rates: { [key: string]: number }
+    rates: { [key: string]: number } | null
     setRubles: (rubles: number| null) => void
 }
 
 const ResultInput = (props: ResultInputPropsType) => {
 
     const onChangeHandler = useCallback((inputValutaValue : number | null) => {
-        props.setRubles(Number(((inputValutaValue || 0) / props.rates[props.valuta]).toFixed(2)))
+        props.rates && props.setRubles(Number(((inputValutaValue || 0) / props.rates[props.valuta]).toFixed(2)))
         props.setInputValutaValue(inputValutaValue)
     },[props.setRubles,props.rates, props.valuta , props.setInputValutaValue])
 

@@ -7,7 +7,7 @@ import {conversionApi} from "../dal/conversionApi";
 
 const CurrencyContainer = () => {
 
-    let [rates, setRates] = useState<{ [key: string]: number }>({})
+    let [rates, setRates] = useState<{ [key: string]: number }| null>(null)
 
 
     let [valuta, setValuta] = useState<string>("USD")
@@ -18,9 +18,13 @@ const CurrencyContainer = () => {
     rubles===0&& setRubles(null)
 
     useEffect(() => {
-        conversionApi.getCurrentCurrency().then(res => setRates(res.rates))
+        rates === null && conversionApi.getCurrentCurrency().then(res => setRates(res.rates))
 
-        setInputValutaValue(Number(((rubles || 0) * rates[valuta]).toFixed(2)))
+        setInterval(() => conversionApi.getCurrentCurrency().then(res => setRates(res.rates)), 10000)
+
+        if (rates) {
+            setInputValutaValue(Number(((rubles || 0) * (rates[valuta])).toFixed(2)))
+        }
 
 
     }, [valuta, rubles, rates])

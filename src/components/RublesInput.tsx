@@ -6,7 +6,7 @@ type RublesInputPropsType = {
     setRubles: (rubles: number| null) => void
     setInputValutaValue: (inputValutaValue: number| null) => void
     inputValutaValue: number| null
-    rates: { [key: string]: number }
+    rates: { [key: string]: number } | null
     valuta: string
 }
 

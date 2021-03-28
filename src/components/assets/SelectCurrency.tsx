@@ -4,7 +4,7 @@ import {MenuItem, TextField} from "@material-ui/core";
 type SelectCurrencyPropsType = {
     currency: string
     setCurrency: (currency: string) => void
-    rates: { [key: string]: number }
+    rates: { [key: string]: number } | null
 }
 
 const SelectCurrency = (props: SelectCurrencyPropsType) => {
@@ -46,10 +46,12 @@ const SelectCurrency = (props: SelectCurrencyPropsType) => {
         {value: "JPY"},
     ]
     const sortArray = currencies.map((el: { value: string, rates?: number }) => {
-        return {...el, rates: props.rates[el.value]};
+        return props.rates &&  {...el, rates: props.rates[el.value]};
     })
         .sort((a, b) => {
-            return a.rates - b.rates
+             if (a && b) {
+                 return  a.rates - b.rates
+            }  else return  0
         })
 
 
@@ -67,8 +69,8 @@ const SelectCurrency = (props: SelectCurrencyPropsType) => {
         style={{width: "150px"}}
     >
         {sortArray.map((option, index) => (
-            <MenuItem key={index} value={option.value}>
-                {option.value} - {(option.rates || 0).toFixed(3)}
+            option !== null && <MenuItem key={index} value={option.value}>
+        {option.value} - {(option.rates || 0).toFixed(3)}
             </MenuItem>
         ))}
     </TextField>
