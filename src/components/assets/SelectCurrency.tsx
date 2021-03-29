@@ -66,11 +66,11 @@ const SelectCurrency = (props: SelectCurrencyPropsType) => {
         }}
         helperText="Please select your currency"
         variant="outlined"
-        style={{width: "150px"}}
+        style={{width: "200px"}}
     >
         {sortArray.map((option, index) => (
             option !== null && <MenuItem key={index} value={option.value}>
-        {option.value} - {(option.rates || 0).toFixed(3)}
+        1 {option.value} -  {(1 / (option.rates || 0)).toFixed(3)} RUB
             </MenuItem>
         ))}
     </TextField>
